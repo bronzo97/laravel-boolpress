@@ -17,6 +17,14 @@
                     {{ __('You are logged in!') }}
                 </div>
             </div>
+            <div class="row">
+                <div class="col text-center m-3">
+                    <a href="{{ route("admin.posts.index")}}" class="btn btn-primary">Index</a>
+                </div>
+                <div class="col text-center m-3">
+                    <a href="{{ route("admin.posts.create")}}" class="btn btn-primary">Create</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
