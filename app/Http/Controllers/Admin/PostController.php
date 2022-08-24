@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -127,8 +129,10 @@ class PostController extends Controller
     public function edit($slug)
     {
         $post = $this->findBySlug($slug);
+        $categories = Category::all();
+        $tags = Tag::all();
 
-        return view("admin.posts.edit", compact("post"));
+        return view("admin.posts.edit", compact("post", "categories", "tags"));
     }
 
     /**
@@ -142,7 +146,8 @@ class PostController extends Controller
     {
         $validatedData = $request->validate([
             "title" => "required|min:10",
-            "content" => "required|min:10"
+            "content" => "required|min:10",
+            "category_id" => "nullable|exists:categories,id"
         ]);
         $post = $this->findBySlug($slug);
 
