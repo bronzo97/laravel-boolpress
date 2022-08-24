@@ -46,7 +46,7 @@ class UserController extends Controller
         $user->details->fill($data);
         $user->details->save();
 
-        return view("admin.users.edit", compact("user"));
+        return redirect()->route("admin.users.edit", $user->id);
     }
 
 
