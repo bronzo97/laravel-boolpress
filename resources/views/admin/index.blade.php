@@ -24,6 +24,9 @@
                 <div class="col text-center m-3">
                     <a href="{{ route("admin.posts.create")}}" class="btn btn-primary">Create</a>
                 </div>
+                <div class="col text-center m-3">
+                    <a href="{{ route("admin.users.index")}}" class="btn btn-primary">Users</a>
+                </div>
             </div>
         </div>
     </div>
