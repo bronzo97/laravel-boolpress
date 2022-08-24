@@ -36,6 +36,8 @@ class UserController extends Controller
             $user->details->user_id = $user->id;
         }
 
+        // assegnazione manuale dei dati 
+
         // $user->details->address = $data["address"];
         // $user->details->city = $data["city"];
         // $user->details->province = $data["province"];
