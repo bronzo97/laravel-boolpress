@@ -77,7 +77,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view("admin.posts.create");
+        $categories = Category::all();
+        $tags = Tag::all();
+
+        return view("admin.posts.create", compact("categories", "tags"));
     }
 
     /**
@@ -147,13 +150,19 @@ class PostController extends Controller
         $validatedData = $request->validate([
             "title" => "required|min:10",
             "content" => "required|min:10",
-            "category_id" => "nullable|exists:categories,id"
+            "category_id" => "nullable|exists:categories,id",
+            "tags" => "nullable|exists:tags,id",
         ]);
         $post = $this->findBySlug($slug);
 
         if ($validatedData["title"] !== $post->title) {
-            // genero un nuovo slug
             $post->slug = $this->generateSlug($validatedData["title"]);
+        }
+
+        if (key_exists("tags", $validatedData)) {
+            $post->tags()->sync($validatedData["tags"]);
+        } else {
+            $post->tags()->sync([]);
         }
 
         $post->update($validatedData);
@@ -170,6 +179,8 @@ class PostController extends Controller
     public function destroy($slug)
     {
         $post = $this->findBySlug($slug);
+
+        $post->tags()->detach();
 
         $post->delete();
 
