@@ -8,6 +8,7 @@ use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -147,13 +148,28 @@ class PostController extends Controller
      */
     public function update(Request $request, $slug)
     {
+
+        // dd($request->all());
+
         $validatedData = $request->validate([
             "title" => "required|min:10",
             "content" => "required|min:10",
             "category_id" => "nullable|exists:categories,id",
             "tags" => "nullable|exists:tags,id",
+            "cover_img" => "nullable|image"
         ]);
         $post = $this->findBySlug($slug);
+
+        if(key_exists("cover_img", $validatedData)) {
+
+            if($post->cover_img) {
+                Storage::delete($post->cover_img);
+            };
+
+            $coverImg = Storage::put("/", $validatedData["cover_img"]);
+
+            $post->cover_img = $coverImg;
+        }
 
         if ($validatedData["title"] !== $post->title) {
             $post->slug = $this->generateSlug($validatedData["title"]);
