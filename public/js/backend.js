@@ -49827,9 +49827,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/danilobronzo/Documents/Boolean/laravel/laravel-many-to-many/resources/js/backend.js */"./resources/js/backend.js");
-__webpack_require__(/*! /Users/danilobronzo/Documents/Boolean/laravel/laravel-many-to-many/resources/sass/backend/backend.scss */"./resources/sass/backend/backend.scss");
-module.exports = __webpack_require__(/*! /Users/danilobronzo/Documents/Boolean/laravel/laravel-many-to-many/resources/sass/frontend/frontend.scss */"./resources/sass/frontend/frontend.scss");
+__webpack_require__(/*! /Users/danilobronzo/Documents/Boolean/laravel/laravel-api/resources/js/backend.js */"./resources/js/backend.js");
+__webpack_require__(/*! /Users/danilobronzo/Documents/Boolean/laravel/laravel-api/resources/sass/backend/backend.scss */"./resources/sass/backend/backend.scss");
+module.exports = __webpack_require__(/*! /Users/danilobronzo/Documents/Boolean/laravel/laravel-api/resources/sass/frontend/frontend.scss */"./resources/sass/frontend/frontend.scss");
 
 
 /***/ })

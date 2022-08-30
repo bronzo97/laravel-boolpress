@@ -15624,7 +15624,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/danilobronzo/Documents/Boolean/laravel/laravel-many-to-many/resources/js/frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! /Users/danilobronzo/Documents/Boolean/laravel/laravel-api/resources/js/frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
