@@ -26,7 +26,9 @@
                 @csrf
                 @method('PUT')
 
-                <div class="row">
+                <file-input name="file-input-name"></file-input>
+
+                {{-- <div class="row">
                     <div class="w-25">
                         <img src="{{ asset("storage/" . $post->cover_img) }}" class="w-100">
                     </div>
@@ -34,7 +36,7 @@
                         <label for="cover_img_file">Immagine di copertina</label>
                         <input type="file" name="cover_img" class="form-control-file" id="cover_img_file">
                     </div>
-                </div>
+                </div> --}}
                 <div class="form-group">
                     <label>Titolo</label>
                     <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Inserisci il titolo" value="{{ old('title', $post->title) }}" required>

@@ -7,6 +7,13 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
+                <h1 v-html="helloMessage"></h1>
+                <ul>
+                    <li v-for="el in lista" v-html="el">
+                        
+                    </li>
+                </ul>
+
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
