@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index() {
-        $posts = Post::paginate(5);
+        $posts = Post::paginate(6);
 
         $posts->map(function ($post) {
 
